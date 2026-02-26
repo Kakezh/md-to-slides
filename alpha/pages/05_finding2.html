@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Alpha来源 - 反常识发现二</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  .main-body {
+    flex: 1; display: flex; flex-direction: column;
+    padding: 8px 40px 10px; gap: 12px;
+    position: relative; z-index: 2;
+  }
+  .slide-title {
+    font-family: var(--font-display);
+    font-size: 22px; font-weight: 700;
+    color: var(--text-primary);
+    animation: fadeInUp 0.6s ease both;
+  }
+  .three-cols { flex: 1; display: flex; gap: 16px; }
+  .col-card {
+    flex: 1; padding: 20px 18px;
+    display: flex; flex-direction: column; gap: 12px;
+    border-radius: 4px;
+  }
+  .col-icon { font-size: 28px; line-height: 1; }
+  .col-title {
+    font-family: var(--font-display);
+    font-size: 13px; letter-spacing: 2px;
+    text-transform: uppercase; font-weight: 700;
+  }
+  .col-desc { font-size: 15px; color: var(--text-primary); line-height: 1.7; flex: 1; }
+  .col-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+  .col-tag {
+    padding: 3px 10px; font-size: 12px;
+    border-radius: 2px; font-family: var(--font-display);
+    letter-spacing: 1px;
+  }
+  /* 左列：红色警告 */
+  .col-warning {
+    background: linear-gradient(135deg, rgba(255,50,50,0.07), rgba(255,50,50,0.02));
+    border: 1px solid rgba(255,50,50,0.3);
+  }
+  .col-warning::before {
+    content: ''; position: absolute; top:0; left:0; right:0; height:2px;
+    background: linear-gradient(90deg, transparent, #ff5050, transparent);
+  }
+  .col-warning { position: relative; overflow: hidden; }
+  /* 中列：紫色 */
+  /* 右列：青色 */
+  .col-l1 { animation: fadeInLeft 0.8s ease 0.2s both; }
+  .col-l2 { animation: fadeInUp 0.8s ease 0.4s both; }
+  .col-l3 { animation: fadeInRight 0.8s ease 0.2s both; }
+  /* 底部铁律条 */
+  .iron-bar {
+    padding: 12px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: linear-gradient(90deg, rgba(255,0,110,0.2), rgba(255,0,110,0.08), rgba(255,0,110,0.2));
+    border: 1px solid rgba(255,0,110,0.5);
+    border-radius: 4px;
+    position: relative; overflow: hidden;
+    animation: fadeInUp 0.8s ease 0.8s both;
+  }
+  .iron-bar-text {
+    font-family: var(--font-display);
+    font-size: 16px; letter-spacing: 3px;
+    color: var(--neon-pink);
+    text-shadow: var(--glow-pink);
+    font-weight: 700;
+  }
+  .iron-bar-sub { font-size: 13px; color: var(--text-secondary); letter-spacing: 1px; }
+  .iron-scan {
+    position: absolute; top:0; left:-100%; width:50%; height:100%;
+    background: linear-gradient(90deg, transparent, rgba(255,0,110,0.15), transparent);
+    animation: scanLight 2.5s linear 1.5s infinite;
+  }
+</style>
+</head>
+<body>
+<div class="slide" style="display:flex;flex-direction:column;">
+  <div class="cyber-grid"></div>
+  <div class="scan-line"></div>
+  <div class="corner-tl"></div>
+  <div class="corner-br"></div>
+
+  <div class="slide-header">
+    <span class="page-tag">04 / FINDING Ⅱ</span>
+    <div class="divider" style="flex:1;margin:0;"></div>
+  </div>
+
+  <div class="main-body">
+    <div class="slide-title">
+      理论完美 <span class="neon-pink">≠</span> 实盘赚钱，
+      <span class="neon-cyan">稳健性</span>才是真理
+    </div>
+
+    <div class="three-cols">
+      <!-- 左：误区 -->
+      <div class="col-card col-warning col-l1">
+        <div class="col-icon">⚠️</div>
+        <div class="col-title" style="color:#ff5050;">误区警告</div>
+        <div class="divider-pink"></div>
+        <div class="col-desc">
+          执着于为因子寻找<strong style="color:#ff8080;">「完美理论解释」</strong><br><br>
+          强行套用理论，并不能保证因子更强。<br><br>
+          可能陷入<strong style="color:#ff5050;">「自欺欺人」</strong>的陷阱。
+        </div>
+        <div class="col-tags">
+          <span class="col-tag" style="background:rgba(255,50,50,0.12);color:#ff8080;border:1px solid rgba(255,50,50,0.3);">过度解读</span>
+          <span class="col-tag" style="background:rgba(255,50,50,0.12);color:#ff8080;border:1px solid rgba(255,50,50,0.3);">事后归因</span>
+        </div>
+      </div>
+
+      <!-- 中：稳健因子特征 -->
+      <div class="col-card card-purple col-l2">
+        <div class="col-icon">✅</div>
+        <div class="col-title" style="color:var(--neon-purple);">稳健因子特征</div>
+        <div class="divider" style="background:linear-gradient(90deg,transparent,var(--neon-purple),transparent);height:1px;margin:0;"></div>
+        <div class="col-desc">
+          <strong style="color:var(--text-primary);">普适性强</strong>——<br>
+          在多种市场环境下都能<strong style="color:#c4a0ff;">重复有效</strong><br><br>
+          <span style="color:var(--text-secondary);">不同周期 · 不同市场 · 可重复验证</span>
+        </div>
+        <div class="col-tags">
+          <span class="col-tag" style="background:rgba(123,47,255,0.15);color:#c4a0ff;border:1px solid rgba(123,47,255,0.4);">跨周期</span>
+          <span class="col-tag" style="background:rgba(123,47,255,0.15);color:#c4a0ff;border:1px solid rgba(123,47,255,0.4);">跨市场</span>
+          <span class="col-tag" style="background:rgba(123,47,255,0.15);color:#c4a0ff;border:1px solid rgba(123,47,255,0.4);">可重复</span>
+        </div>
+      </div>
+
+      <!-- 右：唯一真理 -->
+      <div class="col-card card-cyan col-l3">
+        <div class="col-icon">⭐</div>
+        <div class="col-title neon-cyan">唯一标准</div>
+        <div class="divider" style="margin:0;"></div>
+        <div class="col-desc">
+          <strong class="neon-cyan" style="font-size:17px;">样本外验证</strong><br><br>
+          而非样本内的<br>
+          <span style="text-decoration:line-through;color:var(--text-dim);">完美回测曲线</span><br>
+          <span style="text-decoration:line-through;color:var(--text-dim);">漂亮的故事</span>
+        </div>
+        <div class="col-tags">
+          <span class="col-tag badge-cyan col-tag" style="background:rgba(0,245,255,0.12);color:var(--neon-cyan);border:1px solid rgba(0,245,255,0.4);">铁律</span>
+          <span class="col-tag" style="background:rgba(0,245,255,0.08);color:#80f5ff;border:1px solid rgba(0,245,255,0.3);">不可妥协</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部铁律条 -->
+    <div class="iron-bar">
+      <div class="iron-scan"></div>
+      <div class="iron-bar-text">样本外验证 = 铁律</div>
+      <div class="iron-bar-sub">SAMPLE-OUT VALIDATION · NON-NEGOTIABLE RULE</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

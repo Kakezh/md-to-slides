@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alpha来源 - 封面</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  .cover-wrap {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .particles { position: absolute; inset: 0; z-index: 1; }
+  .cover-content { position: relative; z-index: 2; text-align: center; padding: 0 60px; }
+  .cover-eyebrow {
+    font-family: var(--font-display);
+    font-size: 12px; letter-spacing: 6px;
+    color: var(--neon-cyan); opacity: 0.6;
+    margin-bottom: 24px;
+    animation: fadeInUp 0.8s ease forwards;
+  }
+  .cover-title-line {
+    font-family: var(--font-display);
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .cover-title-line.t1 {
+    font-size: 48px;
+    color: var(--text-primary);
+    text-shadow: 0 0 30px rgba(255,255,255,0.3);
+    animation: fadeInUp 0.8s ease 0.2s both;
+  }
+  .cover-title-line.t2 {
+    font-size: 58px;
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple), var(--neon-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: fadeInUp 0.8s ease 0.4s both, neonPulse 3s ease-in-out 1.5s infinite;
+    margin-bottom: 30px;
+  }
+  .cover-subtitle {
+    font-size: 18px; font-weight: 300;
+    color: var(--neon-pink);
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    animation: fadeInUp 0.8s ease 0.6s both;
+    text-shadow: var(--glow-pink);
+  }
+  .cover-divider {
+    width: 200px; height: 1px; margin: 0 auto 30px;
+    background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+    animation: expandWidth 1s ease 0.8s both;
+    position: relative;
+  }
+  .cover-meta {
+    font-size: 13px; color: var(--text-secondary);
+    letter-spacing: 2px;
+    animation: fadeInUp 0.8s ease 1.0s both;
+    line-height: 2;
+  }
+  .cover-source { color: var(--neon-cyan); opacity: 0.8; font-size: 12px; }
+  .cover-hint {
+    position: absolute; bottom: 30px; right: 40px; z-index: 3;
+    font-family: var(--font-display);
+    font-size: 11px; letter-spacing: 2px;
+    color: var(--text-dim);
+    animation: fadeInUp 0.8s ease 1.4s both;
+    display: flex; gap: 20px;
+  }
+  .cover-hint span { display: flex; align-items: center; gap: 6px; }
+  .key-badge {
+    background: rgba(0,245,255,0.1);
+    border: 1px solid rgba(0,245,255,0.3);
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-size: 10px;
+    color: var(--neon-cyan);
+  }
+  /* 装饰光晕 */
+  .glow-orb {
+    position: absolute; border-radius: 50%;
+    filter: blur(80px); pointer-events: none;
+  }
+  .orb1 {
+    width: 400px; height: 400px;
+    background: rgba(0,245,255,0.06);
+    top: -100px; left: -100px; animation: orbFloat 8s ease-in-out infinite;
+  }
+  .orb2 {
+    width: 350px; height: 350px;
+    background: rgba(255,0,110,0.06);
+    bottom: -100px; right: -100px;
+    animation: orbFloat 10s ease-in-out 2s infinite reverse;
+  }
+  .orb3 {
+    width: 200px; height: 200px;
+    background: rgba(123,47,255,0.08);
+    top: 50%; left: 50%; transform: translate(-50%,-50%);
+    animation: orbFloat 6s ease-in-out 1s infinite;
+  }
+  @keyframes orbFloat {
+    0%, 100% { transform: translate(0,0) scale(1); }
+    50% { transform: translate(20px, -20px) scale(1.05); }
+  }
+  .alpha-decor {
+    position: absolute; z-index: 1;
+    font-family: var(--font-display);
+    font-size: 280px; font-weight: 900;
+    color: rgba(0,245,255,0.03);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    letter-spacing: -10px;
+    animation: fadeInUp 2s ease both;
+  }
+</style>
+</head>
+<body>
+<div class="slide cover-wrap">
+  <div class="cyber-grid"></div>
+  <div class="scan-line"></div>
+  <div class="glow-orb orb1"></div>
+  <div class="glow-orb orb2"></div>
+  <div class="glow-orb orb3"></div>
+  <div class="alpha-decor">α</div>
+  <div class="corner-tl"></div>
+  <div class="corner-br"></div>
+
+  <div class="cover-content">
+    <div class="cover-eyebrow">ALPHA RESEARCH // CYBER FINANCE // 2025</div>
+    <div class="cover-title-line t1">没人能真正说清</div>
+    <div class="cover-title-line t2">Alpha 到底从何而来</div>
+    <div class="cover-subtitle">从学术派、数据派到 Alpha 的本质与可持续性</div>
+    <div class="cover-divider"></div>
+    <div class="cover-meta">
+      <div class="cover-source">基于公众号「阿尔法局」文章分析</div>
+      <div style="margin-top:6px; color: var(--text-dim); font-size:11px;">QUANTITATIVE STRATEGY · FACTOR RESEARCH</div>
+    </div>
+  </div>
+
+  <div class="cover-hint">
+    <span><span class="key-badge">→</span> 下一页</span>
+    <span><span class="key-badge">F</span> 全屏</span>
+    <span><span class="key-badge">ESC</span> 退出全屏</span>
+  </div>
+</div>
+</body>
+</html>

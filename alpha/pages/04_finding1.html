@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Alpha来源 - 反常识发现一</title>
+<link rel="stylesheet" href="../css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  .main-body {
+    flex: 1; display: flex; gap: 30px;
+    padding: 10px 40px 15px; position: relative; z-index: 2;
+    align-items: stretch;
+  }
+  .left-panel { flex: 0 0 340px; display: flex; flex-direction: column; gap: 14px; }
+  .right-panel { flex: 1; display: flex; flex-direction: column; gap: 12px; }
+  .data-shock {
+    padding: 16px 18px;
+    animation: fadeInLeft 0.8s ease 0.2s both;
+  }
+  .shock-label {
+    font-family: var(--font-display);
+    font-size: 11px; letter-spacing: 3px;
+    color: var(--neon-pink); margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .shock-title {
+    font-size: 16px; font-weight: 700;
+    color: var(--text-primary); margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  .big-50 {
+    font-family: var(--font-display);
+    font-size: 72px; font-weight: 900;
+    color: var(--neon-pink);
+    text-shadow: var(--glow-pink);
+    line-height: 1;
+    animation: countUp 0.8s ease 0.6s both;
+  }
+  .key-points { display: flex; flex-direction: column; gap: 8px; animation: fadeInLeft 0.8s ease 0.4s both; }
+  .kp-item {
+    display: flex; gap: 10px; align-items: flex-start;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.02);
+    border-radius: 3px;
+    border-left: 2px solid var(--neon-cyan);
+    font-size: 13px; color: var(--text-primary); line-height: 1.6;
+  }
+  .kp-icon { color: var(--neon-cyan); font-size: 14px; margin-top: 1px; flex-shrink: 0; }
+  .final-quote-wrap { animation: fadeInUp 0.8s ease 1.2s both; }
+  .chart-wrap {
+    flex: 1; position: relative;
+    padding: 15px;
+    animation: fadeInRight 0.8s ease 0.3s both;
+    min-height: 0;
+  }
+  .chart-title {
+    font-family: var(--font-display);
+    font-size: 11px; letter-spacing: 2px;
+    color: var(--text-secondary); margin-bottom: 8px;
+    text-transform: uppercase; text-align: center;
+  }
+  canvas { max-height: 260px !important; }
+  .conclusion-bar {
+    padding: 10px 18px;
+    background: linear-gradient(90deg, rgba(255,0,110,0.15), rgba(255,0,110,0.05));
+    border: 1px solid rgba(255,0,110,0.3);
+    border-radius: 3px; font-size: 13px; color: var(--text-primary);
+    position: relative; overflow: hidden;
+    animation: fadeInUp 0.8s ease 1.0s both;
+  }
+  .conclusion-bar strong { color: var(--neon-pink); }
+  .scan-bar2 {
+    position: absolute; top:0; left:-100%; width:60%; height:100%;
+    background: linear-gradient(90deg, transparent, rgba(255,0,110,0.08), transparent);
+    animation: scanLight 3s linear 2s infinite;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+<div class="slide" style="display:flex;flex-direction:column;">
+  <div class="cyber-grid"></div>
+  <div class="scan-line"></div>
+  <div class="corner-tl"></div>
+  <div class="corner-br"></div>
+
+  <div class="slide-header">
+    <span class="page-tag">03 / FINDING Ⅰ</span>
+    <div class="divider" style="flex:1;margin:0;"></div>
+    <span style="font-size:13px;color:var(--text-primary);font-weight:600;">
+      样本外，两类信号的表现惊人地<span class="neon-pink">相似</span>
+    </span>
+  </div>
+
+  <div class="main-body">
+    <!-- 左侧 -->
+    <div class="left-panel">
+      <div class="data-shock card-pink">
+        <div class="shock-label">⚡ 核心数据冲击</div>
+        <div class="shock-title">样本外衰减一律「腰斩」</div>
+        <div style="display:flex;align-items:baseline;gap:8px;">
+          <div class="big-50">50<span style="font-size:36px;">%</span></div>
+          <div style="font-size:12px;color:var(--text-secondary);line-height:1.4;">
+            样本外平均<br>仅剩原来的
+          </div>
+        </div>
+      </div>
+
+      <div class="key-points">
+        <div class="kp-item" style="animation-delay:0.5s;">
+          <span class="kp-icon">▸</span>
+          <span>两者衰减速度与幅度在<strong style="color:var(--neon-cyan);">统计上几乎没有区别</strong></span>
+        </div>
+        <div class="kp-item" style="animation-delay:0.7s;">
+          <span class="kp-icon">▸</span>
+          <span>肉眼和统计方法都<strong style="color:var(--neon-cyan);">难以区分</strong>样本外的两者表现</span>
+        </div>
+      </div>
+
+      <div class="final-quote-wrap">
+        <div class="final-quote" style="font-size:14px; padding:12px 16px; text-align:left;">
+          「能否解释为什么有效」<br>
+          与「实盘能否赚钱」<br>
+          <span class="neon-pink" style="font-weight:700; font-size:15px;">关系没有想象中那么大</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右侧图表 -->
+    <div class="right-panel">
+      <div class="chart-wrap card-cyan">
+        <div class="chart-title">// 样本内 vs 样本外 · 表现对比 //</div>
+        <canvas id="decayChart"></canvas>
+      </div>
+      <div class="conclusion-bar">
+        <div class="scan-bar2"></div>
+        经过同行评审的完美理论，在实盘中并不比暴力挖掘的因子
+        <strong>更"能打"</strong>。
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const ctx = document.getElementById('decayChart').getContext('2d');
+const labels = ['学术派因子 (样本内)', '学术派因子 (样本外)', '数据挖掘因子 (样本内)', '数据挖掘因子 (样本外)'];
+const data = [100, 52, 100, 48];
+const colors = [
+  'rgba(0,245,255,0.7)', 'rgba(0,245,255,0.25)',
+  'rgba(255,0,110,0.7)', 'rgba(255,0,110,0.25)'
+];
+const borderColors = [
+  'rgba(0,245,255,1)', 'rgba(0,245,255,0.6)',
+  'rgba(255,0,110,1)', 'rgba(255,0,110,0.6)'
+];
+
+Chart.defaults.color = '#8892b0';
+Chart.defaults.font.family = "'Noto Sans SC', sans-serif";
+
+const chart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels,
+    datasets: [{
+      label: '有效性指数 (%)',
+      data,
+      backgroundColor: colors,
+      borderColor: borderColors,
+      borderWidth: 1.5,
+      borderRadius: 3,
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    animation: {
+      delay: (ctx) => ctx.dataIndex * 200 + 600,
+      duration: 800,
+      easing: 'easeOutQuart',
+    },
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: 'rgba(10,10,30,0.9)',
+        borderColor: 'rgba(0,245,255,0.3)',
+        borderWidth: 1,
+        callbacks: {
+          label: (ctx) => ` 有效性: ${ctx.raw}%`,
+          afterLabel: (ctx) => ctx.dataIndex % 2 === 1 ? ' ▼ 样本外腰斩' : ''
+        }
+      },
+      annotation: {},
+    },
+    scales: {
+      x: {
+        grid: { color: 'rgba(255,255,255,0.03)', drawBorder: false },
+        ticks: { font: { size: 11 }, maxRotation: 0,
+          callback: (v, i) => {
+            const short = ['学术\n样本内', '学术\n样本外', '数据挖掘\n样本内', '数据挖掘\n样本外'];
+            return short[i];
+          }
+        }
+      },
+      y: {
+        min: 0, max: 120,
+        grid: { color: 'rgba(0,245,255,0.06)', drawBorder: false },
+        ticks: { font: { size: 11 }, callback: v => v + '%' },
+        title: { display: true, text: '有效性 (%)', font: { size: 11 }, color: '#8892b0' }
+      }
+    }
+  }
+});
+
+// 50% 基准线插件
+const plugin = {
+  id: 'baseline',
+  afterDraw(chart) {
+    const {ctx, chartArea: {left, right}, scales: {y}} = chart;
+    const y50 = y.getPixelForValue(50);
+    ctx.save();
+    ctx.strokeStyle = 'rgba(255,200,0,0.5)';
+    ctx.lineWidth = 1.5;
+    ctx.setLineDash([6, 4]);
+    ctx.beginPath(); ctx.moveTo(left, y50); ctx.lineTo(right, y50); ctx.stroke();
+    ctx.fillStyle = 'rgba(255,200,0,0.8)';
+    ctx.font = '10px Orbitron';
+    ctx.fillText('50% 腰斩线', right - 72, y50 - 6);
+    ctx.restore();
+  }
+};
+chart.register ? chart.register(plugin) : Chart.register(plugin);
+// 重绘以显示插件
+setTimeout(() => { chart.update(); }, 100);
+</script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Alpha来源 - Alpha本质</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  .main-body {
+    flex: 1; display: flex; gap: 20px;
+    padding: 8px 40px 12px; position: relative; z-index: 2;
+  }
+  .left-cards { flex: 1; display: flex; flex-direction: column; gap: 12px; }
+  .right-table { flex: 0 0 260px; display: flex; flex-direction: column; gap: 10px; }
+  /* Alpha 卡片 */
+  .alpha-card {
+    flex: 1; padding: 16px 20px;
+    border-radius: 4px;
+    display: flex; flex-direction: column; gap: 8px;
+    position: relative; overflow: hidden;
+  }
+  .alpha-card-header { display: flex; align-items: center; gap: 12px; }
+  .alpha-big-label {
+    font-family: var(--font-display);
+    font-size: 11px; letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+  .alpha-name {
+    font-size: 22px; font-weight: 700; line-height: 1.2;
+  }
+  .alpha-eng {
+    font-family: var(--font-display);
+    font-size: 10px; letter-spacing: 2px;
+    opacity: 0.5; margin-left: 4px;
+  }
+  .alpha-rows { display: flex; flex-direction: column; gap: 5px; flex: 1; }
+  .alpha-row { display: flex; gap: 10px; align-items: center; font-size: 13px; }
+  .alpha-row-key {
+    min-width: 55px; color: var(--text-dim);
+    font-size: 11px; font-family: var(--font-display);
+    letter-spacing: 1px;
+  }
+  .alpha-row-val { color: var(--text-primary); }
+  .alpha-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .alpha-tag {
+    padding: 3px 10px; font-size: 12px;
+    border-radius: 12px; letter-spacing: 1px;
+  }
+  .alpha-analogy {
+    font-size: 13px; font-style: italic;
+    opacity: 0.7; margin-top: 4px;
+  }
+  /* 卡片特色线 */
+  .pink-card { border: 1px solid rgba(255,0,110,0.3); background: linear-gradient(135deg, rgba(255,0,110,0.06), rgba(255,0,110,0.02)); }
+  .pink-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,transparent,var(--neon-pink),transparent); }
+  .cyan-card { border: 1px solid rgba(0,245,255,0.3); background: linear-gradient(135deg, rgba(0,245,255,0.06), rgba(0,245,255,0.02)); }
+  .cyan-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,transparent,var(--neon-cyan),transparent); }
+  /* 动画 */
+  .card-left1 { animation: fadeInLeft 0.8s ease 0.2s both; }
+  .card-left2 { animation: fadeInLeft 0.8s ease 0.4s both; }
+  .right-anim { animation: fadeInRight 0.8s ease 0.3s both; }
+  /* 右侧表格区 */
+  .table-title {
+    font-family: var(--font-display);
+    font-size: 11px; letter-spacing: 2px;
+    color: var(--text-secondary); text-align: center;
+    text-transform: uppercase;
+  }
+  .compare-table { width: 100%; }
+  .compare-table th {
+    background: rgba(0,245,255,0.08);
+    color: var(--neon-cyan);
+    padding: 6px 8px; font-size: 11px;
+    font-family: var(--font-display);
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(0,245,255,0.2);
+    text-align: left;
+  }
+  .compare-table td {
+    padding: 8px 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-size: 12px; color: var(--text-primary);
+    line-height: 1.5;
+  }
+  .compare-table tr:nth-child(1) td { border-bottom: 1px solid rgba(255,0,110,0.15); }
+  /* 可持续性指示 */
+  .sustain-bar {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 11px;
+  }
+  .bar-track { flex: 1; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 2px; transition: width 1s ease; }
+  /* 底部核心洞察 */
+  .insight-box {
+    padding: 10px 14px;
+    background: rgba(0,245,255,0.04);
+    border: 1px solid rgba(0,245,255,0.15);
+    border-radius: 3px;
+    font-size: 12px; color: var(--text-secondary);
+    line-height: 1.6; text-align: center;
+  }
+  .slide-title {
+    font-family: var(--font-display);
+    font-size: 20px; font-weight: 700;
+    color: var(--text-primary);
+    animation: slideInDown 0.6s ease both;
+  }
+</style>
+</head>
+<body>
+<div class="slide" style="display:flex;flex-direction:column;">
+  <div class="cyber-grid"></div>
+  <div class="scan-line"></div>
+  <div class="corner-tl"></div>
+  <div class="corner-br"></div>
+
+  <div class="slide-header">
+    <span class="page-tag">05 / ALPHA NATURE</span>
+    <div class="divider" style="flex:1;margin:0;"></div>
+    <span class="slide-title" style="font-size:17px;">穿透现象，理解 Alpha 的<span class="neon-cyan">两种内核</span></span>
+  </div>
+
+  <div class="main-body">
+    <div class="left-cards">
+      <!-- 重估 Alpha -->
+      <div class="alpha-card pink-card card-left1">
+        <div class="alpha-card-header">
+          <div>
+            <div class="alpha-big-label neon-pink">Revaluation Alpha</div>
+            <div class="alpha-name neon-pink">重估 Alpha<span class="alpha-eng">REVALUATION</span></div>
+          </div>
+        </div>
+        <div class="alpha-rows">
+          <div class="alpha-row">
+            <div class="alpha-row-key">来源</div>
+            <div class="alpha-row-val">估值波动（低PE修复、情绪回暖）</div>
+          </div>
+          <div class="alpha-row">
+            <div class="alpha-row-key">依赖</div>
+            <div class="alpha-row-val" style="color:var(--text-secondary);">市场风格 · 流动性 · 情绪</div>
+          </div>
+        </div>
+        <div class="alpha-tags">
+          <span class="alpha-tag" style="background:rgba(255,0,110,0.15);color:#ff80a8;border:1px solid rgba(255,0,110,0.35);">来得快</span>
+          <span class="alpha-tag" style="background:rgba(255,0,110,0.15);color:#ff80a8;border:1px solid rgba(255,0,110,0.35);">去得快</span>
+          <span class="alpha-tag" style="background:rgba(255,80,80,0.15);color:#ff8080;border:1px solid rgba(255,80,80,0.35);">不可持续</span>
+          <span class="alpha-tag" style="background:rgba(255,150,0,0.1);color:#ffb060;border:1px solid rgba(255,150,0,0.3);">周期性强</span>
+        </div>
+        <div class="alpha-analogy">💡 赚「一波就走」的钱</div>
+      </div>
+
+      <!-- 结构性 Alpha -->
+      <div class="alpha-card cyan-card card-left2">
+        <div class="alpha-card-header">
+          <div>
+            <div class="alpha-big-label neon-cyan">Structural Alpha</div>
+            <div class="alpha-name neon-cyan">结构性 Alpha<span class="alpha-eng">STRUCTURAL</span></div>
+          </div>
+        </div>
+        <div class="alpha-rows">
+          <div class="alpha-row">
+            <div class="alpha-row-key">来源</div>
+            <div class="alpha-row-val">企业基本面真实改善（盈利增长、效率提升）</div>
+          </div>
+          <div class="alpha-row">
+            <div class="alpha-row-key">本质</div>
+            <div class="alpha-row-val" style="color:var(--text-secondary);">剔除估值波动后的收益</div>
+          </div>
+        </div>
+        <div class="alpha-tags">
+          <span class="alpha-tag" style="background:rgba(0,245,255,0.12);color:#80f5ff;border:1px solid rgba(0,245,255,0.35);">长期持有</span>
+          <span class="alpha-tag" style="background:rgba(0,245,255,0.12);color:#80f5ff;border:1px solid rgba(0,245,255,0.35);">穿越周期</span>
+          <span class="alpha-tag" style="background:rgba(0,255,136,0.12);color:var(--neon-green);border:1px solid rgba(0,255,136,0.35);">可持续</span>
+          <span class="alpha-tag" style="background:rgba(0,255,136,0.12);color:var(--neon-green);border:1px solid rgba(0,255,136,0.35);">可复制</span>
+        </div>
+        <div class="alpha-analogy">💡 赚「企业成长」的钱</div>
+      </div>
+    </div>
+
+    <!-- 右侧对比 -->
+    <div class="right-table right-anim">
+      <div class="table-title">// 对比分析 //</div>
+      <div class="card-cyan" style="padding:14px;border-radius:4px;">
+        <table class="compare-table">
+          <tr>
+            <th>类型</th><th>来源</th><th>可持续</th>
+          </tr>
+          <tr>
+            <td><span class="neon-pink" style="font-weight:700;">重估</span></td>
+            <td>估值波动</td>
+            <td><span style="color:#ff8080;">弱 ▼</span></td>
+          </tr>
+          <tr>
+            <td><span class="neon-cyan" style="font-weight:700;">结构性</span></td>
+            <td>基本面</td>
+            <td><span class="neon-green">强 ▲</span></td>
+          </tr>
+        </table>
+        <div style="margin-top:14px;display:flex;flex-direction:column;gap:10px;">
+          <div class="sustain-bar">
+            <span style="font-size:11px;color:var(--neon-pink);min-width:38px;">重估</span>
+            <div class="bar-track">
+              <div class="bar-fill" id="bar1" style="width:0%;background:linear-gradient(90deg,var(--neon-pink),rgba(255,0,110,0.4));"></div>
+            </div>
+            <span style="font-size:11px;color:var(--text-dim);" id="pct1">0%</span>
+          </div>
+          <div class="sustain-bar">
+            <span style="font-size:11px;color:var(--neon-cyan);min-width:38px;">结构</span>
+            <div class="bar-track">
+              <div class="bar-fill" id="bar2" style="width:0%;background:linear-gradient(90deg,var(--neon-cyan),rgba(0,245,255,0.4));"></div>
+            </div>
+            <span style="font-size:11px;color:var(--text-dim);" id="pct2">0%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="insight-box">
+        <div style="color:var(--neon-cyan);font-size:11px;font-family:var(--font-display);letter-spacing:2px;margin-bottom:6px;">CORE INSIGHT</div>
+        真正的长期 Alpha<br>
+        来自对企业<strong style="color:var(--neon-cyan);">基本面机制</strong><br>
+        的深度理解
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+setTimeout(() => {
+  function animateBar(id, pctId, target) {
+    let cur = 0;
+    const timer = setInterval(() => {
+      cur = Math.min(cur + 1.5, target);
+      document.getElementById(id).style.width = cur + '%';
+      document.getElementById(pctId).textContent = Math.floor(cur) + '%';
+      if (cur >= target) clearInterval(timer);
+    }, 16);
+  }
+  animateBar('bar1', 'pct1', 35);
+  animateBar('bar2', 'pct2', 88);
+}, 600);
+</script>
+</body>
+</html>

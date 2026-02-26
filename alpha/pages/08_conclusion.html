@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Alpha来源 - 总结</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  .main-body {
+    flex: 1; display: flex; flex-direction: column;
+    padding: 6px 40px 10px; gap: 10px;
+    position: relative; z-index: 2;
+  }
+  .top-row { display: flex; gap: 16px; flex: 1; }
+  /* 左：不是什么 */
+  .not-alpha {
+    flex: 0 0 240px;
+    padding: 14px 16px;
+    border-radius: 4px;
+    display: flex; flex-direction: column; gap: 8px;
+    animation: fadeInLeft 0.8s ease 0.2s both;
+  }
+  .not-title {
+    font-family: var(--font-display);
+    font-size: 11px; letter-spacing: 3px;
+    color: #ff5050; text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .not-item {
+    display: flex; gap: 10px; align-items: flex-start;
+    padding: 8px 10px;
+    background: rgba(255,50,50,0.05);
+    border-radius: 3px;
+    border-left: 2px solid rgba(255,50,50,0.4);
+    font-size: 13px; color: var(--text-secondary);
+    line-height: 1.4;
+    text-decoration: line-through;
+    text-decoration-color: rgba(255,50,50,0.5);
+  }
+  .not-icon { font-size: 14px; text-decoration: none; flex-shrink: 0; }
+  /* 中：三要素 */
+  .three-elements {
+    flex: 1; display: flex; flex-direction: column; gap: 8px;
+    animation: fadeInUp 0.8s ease 0.4s both;
+  }
+  .element-title {
+    font-family: var(--font-display);
+    font-size: 11px; letter-spacing: 3px;
+    color: var(--neon-cyan); text-transform: uppercase;
+  }
+  .element-cards { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+  .el-card {
+    flex: 1; display: flex; gap: 14px; align-items: center;
+    padding: 10px 16px;
+    border-radius: 3px;
+    position: relative; overflow: hidden;
+  }
+  .el-num {
+    font-family: var(--font-display);
+    font-size: 32px; font-weight: 900;
+    color: var(--neon-cyan); opacity: 0.2;
+    min-width: 40px; line-height: 1;
+  }
+  .el-text { flex: 1; }
+  .el-main { font-size: 15px; color: var(--text-primary); font-weight: 600; margin-bottom: 2px; }
+  .el-sub { font-size: 12px; color: var(--text-dim); }
+  /* 右：壁垒升级 */
+  .barrier {
+    flex: 0 0 220px; display: flex; flex-direction: column; gap: 8px;
+    animation: fadeInRight 0.8s ease 0.3s both;
+  }
+  .barrier-title {
+    font-family: var(--font-display);
+    font-size: 11px; letter-spacing: 3px;
+    color: var(--neon-purple); text-transform: uppercase;
+  }
+  .barrier-old {
+    padding: 12px 14px; border-radius: 3px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    font-size: 13px; color: var(--text-dim); text-align: center;
+    line-height: 1.6;
+  }
+  .barrier-arrow {
+    text-align: center;
+    font-size: 22px; color: var(--neon-purple);
+    text-shadow: var(--glow-purple);
+    animation: neonPulse 2s ease-in-out infinite;
+  }
+  .barrier-new {
+    padding: 14px; border-radius: 3px;
+    font-size: 13px; color: var(--text-primary); text-align: center;
+    line-height: 1.7; flex: 1;
+  }
+  .barrier-new strong { color: var(--neon-cyan); }
+  /* 底部金句 */
+  .mega-quote {
+    padding: 14px 24px;
+    background: linear-gradient(90deg, rgba(0,245,255,0.06), rgba(123,47,255,0.06), rgba(255,0,110,0.06));
+    border: 1px solid rgba(0,245,255,0.2);
+    border-radius: 4px;
+    text-align: center; position: relative; overflow: hidden;
+    animation: fadeInUp 0.8s ease 1.0s both;
+  }
+  .mega-quote-text {
+    font-size: 17px; line-height: 1.8; color: var(--text-primary);
+    font-weight: 500;
+  }
+  .mega-quote-text em { font-style: normal; color: var(--neon-pink); font-weight: 700; text-shadow: var(--glow-pink); }
+  .mega-quote-text strong { color: var(--neon-cyan); text-shadow: var(--glow-cyan); }
+  .mega-scan { position:absolute; top:0; left:-100%; width:60%; height:100%; background:linear-gradient(90deg,transparent,rgba(0,245,255,0.06),transparent); animation:scanLight 4s linear 2s infinite; }
+  .mega-quote::before { content:'「'; position:absolute; top:4px; left:14px; font-size:40px; color:rgba(0,245,255,0.1); font-family:serif; }
+  .mega-quote::after { content:'」'; position:absolute; bottom:0px; right:14px; font-size:40px; color:rgba(255,0,110,0.1); font-family:serif; }
+</style>
+</head>
+<body>
+<div class="slide" style="display:flex;flex-direction:column;">
+  <div class="cyber-grid"></div>
+  <div class="scan-line"></div>
+  <div class="corner-tl"></div>
+  <div class="corner-br"></div>
+
+  <div class="slide-header">
+    <span class="page-tag">07 / CONCLUSION</span>
+    <div class="divider" style="flex:1;margin:0;"></div>
+    <span style="font-size:14px;color:var(--text-primary);">Alpha 的真正来源是<span class="neon-cyan">「机制理解」</span></span>
+  </div>
+
+  <div class="main-body">
+    <div class="top-row">
+      <!-- 左：不是什么 -->
+      <div class="not-alpha" style="background:rgba(255,50,50,0.04);border:1px solid rgba(255,50,50,0.2);">
+        <div class="not-title">✗ Alpha 不是…</div>
+        <div class="not-item"><span class="not-icon">❌</span>暴力挖掘出的统计巧合</div>
+        <div class="not-item"><span class="not-icon">❌</span>论文里写得漂亮的理论</div>
+        <div class="not-item"><span class="not-icon">❌</span>回测中那条完美的曲线</div>
+      </div>
+
+      <!-- 中：真正来源三要素 -->
+      <div class="three-elements">
+        <div class="element-title">✓ Alpha 的真正来源（三要素叠加）</div>
+        <div class="element-cards">
+          <div class="el-card card-cyan" style="animation: fadeInUp 0.6s ease 0.5s both;">
+            <div class="el-num">01</div>
+            <div class="el-text">
+              <div class="el-main"><span class="neon-cyan">市场并非时刻有效</span></div>
+              <div class="el-sub">存在错误定价 · 可被捕捉的机会窗口</div>
+            </div>
+          </div>
+          <div class="el-card card-purple" style="animation: fadeInUp 0.6s ease 0.7s both;">
+            <div class="el-num" style="color:var(--neon-purple);">02</div>
+            <div class="el-text">
+              <div class="el-main"><span class="neon-purple">投资者存在系统性行为偏差</span></div>
+              <div class="el-sub">可被预测的非理性 · 可被利用的规律</div>
+            </div>
+          </div>
+          <div class="el-card card-pink" style="animation: fadeInUp 0.6s ease 0.9s both;">
+            <div class="el-num" style="color:var(--neon-pink);">03</div>
+            <div class="el-text">
+              <div class="el-main"><span class="neon-pink">信息不对称与摩擦长期存在</span></div>
+              <div class="el-sub">市场不完美 · 认知差异形成超额收益</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右：壁垒升级 -->
+      <div class="barrier">
+        <div class="barrier-title">⚡ 未来壁垒</div>
+        <div class="barrier-old" style="border-color:rgba(255,255,255,0.1);">
+          <span style="color:var(--text-dim); font-size:12px; text-decoration:line-through;">我又挖到了<br>一个新信号</span>
+        </div>
+        <div class="barrier-arrow">↓</div>
+        <div class="barrier-new card-cyan">
+          我<strong>理解</strong>这个信号<br>
+          <strong>为什么有效</strong><br>
+          <strong>在哪里有效</strong><br>
+          以及<strong>何时会失效</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部金句 -->
+    <div class="mega-quote">
+      <div class="mega-scan"></div>
+      <div class="mega-quote-text">
+        <em>能解释的</em>，不一定能赚钱；<br>
+        <strong>能复制、能稳健、能穿越周期的</strong>，才是真 <strong>Alpha</strong>。
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

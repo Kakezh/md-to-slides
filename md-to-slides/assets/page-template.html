@@ -1,0 +1,47 @@
+<!--
+  子页面模板 —— 生成每个 pages/NN_name.html 时以此为骨架
+  替换标记：
+    {{PAGE_TITLE}}     → 浏览器标题
+    {{PAGE_TAG}}       → 页码标签，如 "01 / COVER"
+    {{PAGE_STYLES}}    → 本页专属 <style> 内容
+    {{PAGE_CONTENT}}   → 主内容区 HTML
+    {{PAGE_SCRIPTS}}   → 本页专属 <script> 内容
+    {{HEADER_RIGHT}}   → 页头右侧补充文字（可选）
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{PAGE_TITLE}}</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+{{PAGE_STYLES}}
+</style>
+</head>
+<body>
+<div class="slide" style="display:flex;flex-direction:column;">
+  <!-- 背景装饰层 -->
+  <div class="cyber-grid"></div>
+  <div class="scan-line"></div>
+  <div class="corner-tl"></div>
+  <div class="corner-br"></div>
+
+  <!-- 页头 -->
+  <div class="slide-header">
+    <span class="page-tag">{{PAGE_TAG}}</span>
+    <div class="divider" style="flex:1;margin:0;"></div>
+    {{HEADER_RIGHT}}
+  </div>
+
+  <!-- 主内容区 -->
+  <div class="content-area" style="flex:1;display:flex;flex-direction:column;padding:8px 40px 12px;position:relative;z-index:2;">
+    {{PAGE_CONTENT}}
+  </div>
+</div>
+
+<script>
+{{PAGE_SCRIPTS}}
+</script>
+</body>
+</html>

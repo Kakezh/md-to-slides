@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Alpha来源 - 方法论升级</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  .main-body {
+    flex: 1; display: flex; flex-direction: column;
+    padding: 6px 40px 10px; gap: 10px;
+    position: relative; z-index: 2;
+  }
+  /* 核心原则横幅 */
+  .principle-banner {
+    padding: 10px 24px;
+    display: flex; align-items: center; gap: 20px;
+    background: linear-gradient(90deg, rgba(0,245,255,0.1), rgba(0,245,255,0.03), rgba(0,245,255,0.1));
+    border: 1px solid rgba(0,245,255,0.25);
+    border-radius: 4px; position: relative; overflow: hidden;
+    animation: fadeInUp 0.6s ease 0.2s both;
+  }
+  .principle-text {
+    font-family: var(--font-display);
+    font-size: 22px; font-weight: 900;
+    color: var(--neon-cyan);
+    text-shadow: var(--glow-cyan);
+    letter-spacing: 4px;
+  }
+  .principle-sub { font-size: 13px; color: var(--text-secondary); letter-spacing: 1px; }
+  .banner-scan { position:absolute; top:0; left:-100%; width:50%; height:100%; background:linear-gradient(90deg,transparent,rgba(0,245,255,0.1),transparent); animation:scanLight 3s linear 1s infinite; }
+  /* 内容双列 */
+  .content-cols { flex: 1; display: flex; gap: 16px; }
+  .col-left { flex: 0 0 300px; display: flex; flex-direction: column; gap: 10px; }
+  .col-right { flex: 1; display: flex; flex-direction: column; gap: 10px; }
+  /* 引用卡片 */
+  .quote-card {
+    flex: 1; padding: 14px 16px;
+    border-radius: 4px;
+    position: relative; overflow: hidden;
+  }
+  .person-name {
+    font-family: var(--font-display);
+    font-size: 14px; font-weight: 900;
+    margin-bottom: 2px;
+  }
+  .person-title { font-size: 11px; color: var(--text-dim); letter-spacing: 1px; margin-bottom: 8px; }
+  .core-principle {
+    font-size: 14px; font-weight: 700;
+    margin-bottom: 6px; letter-spacing: 1px;
+  }
+  .quote-body { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
+  /* 四大建议 */
+  .advice-title {
+    font-family: var(--font-display);
+    font-size: 11px; letter-spacing: 3px;
+    color: var(--text-dim); text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .advice-list { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+  .advice-item {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 11px 16px;
+    background: rgba(255,255,255,0.02);
+    border-radius: 3px;
+    border-left: 0px solid transparent;
+    transition: all 0.3s ease;
+    cursor: default;
+    animation: fadeInRight 0.6s ease both;
+  }
+  .advice-item:hover {
+    background: rgba(0,245,255,0.05);
+    border-left: 2px solid var(--neon-cyan);
+    padding-left: 14px;
+  }
+  .advice-num {
+    font-family: var(--font-display);
+    font-size: 18px; font-weight: 900;
+    color: var(--neon-cyan); opacity: 0.4;
+    min-width: 28px; line-height: 1;
+    margin-top: 2px;
+  }
+  .advice-text { flex: 1; }
+  .advice-main { font-size: 15px; color: var(--text-primary); font-weight: 600; margin-bottom: 2px; }
+  .advice-sub { font-size: 12px; color: var(--text-dim); line-height: 1.5; }
+  .highlight-word { color: var(--neon-cyan); font-weight: 700; }
+  .advice-item:nth-child(1) { animation-delay: 0.5s; }
+  .advice-item:nth-child(2) { animation-delay: 0.7s; }
+  .advice-item:nth-child(3) { animation-delay: 0.9s; }
+  .advice-item:nth-child(4) { animation-delay: 1.1s; }
+</style>
+</head>
+<body>
+<div class="slide" style="display:flex;flex-direction:column;">
+  <div class="cyber-grid"></div>
+  <div class="scan-line"></div>
+  <div class="corner-tl"></div>
+  <div class="corner-br"></div>
+
+  <div class="slide-header">
+    <span class="page-tag">06 / METHODOLOGY</span>
+    <div class="divider" style="flex:1;margin:0;"></div>
+    <span style="font-size:14px;color:var(--text-primary);">实操层面的进化：少讲故事，多验样本外</span>
+  </div>
+
+  <div class="main-body">
+    <!-- 核心原则 -->
+    <div class="principle-banner">
+      <div class="banner-scan"></div>
+      <div class="principle-text">观察 &gt; 解释</div>
+      <div class="principle-sub">OBSERVE FIRST · EXPLAIN LATER · VALIDATE ALWAYS</div>
+    </div>
+
+    <div class="content-cols">
+      <!-- 左：名人引用 -->
+      <div class="col-left">
+        <!-- 西蒙斯 -->
+        <div class="quote-card card-pink" style="animation: fadeInLeft 0.8s ease 0.4s both;">
+          <div class="person-name neon-pink">詹姆斯·西蒙斯</div>
+          <div class="person-title">大奖章基金 · 文艺复兴科技</div>
+          <div class="core-principle" style="color:var(--text-primary);">
+            核心原则：<span class="neon-pink">「永不干预」</span>
+          </div>
+          <div class="quote-body">
+            能长期赚钱的往往是<br>
+            <strong style="color:var(--text-primary);">复杂、难解释</strong>但统计稳健的模式。
+          </div>
+        </div>
+
+        <!-- 维特根斯坦式量化 -->
+        <div class="quote-card card-purple" style="animation: fadeInLeft 0.8s ease 0.6s both;">
+          <div class="person-name neon-purple">维特根斯坦式量化</div>
+          <div class="person-title">哲学方法论 · 应用于量化策略</div>
+          <div class="divider" style="background:linear-gradient(90deg,transparent,var(--neon-purple),transparent);height:1px;margin:4px 0 8px;"></div>
+          <div class="quote-body" style="font-size:14px;">
+            <span style="color:#c4a0ff;font-weight:600;">「先看它在样本外稳不稳，</span><br>
+            <span style="color:#c4a0ff;font-weight:600;">再去想为什么。」</span><br><br>
+            <span>而非先编造道理，再去找证据。</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右：四大建议 -->
+      <div class="col-right">
+        <div class="advice-title">// 可执行的四大建议 //</div>
+        <div class="advice-list">
+          <div class="advice-item">
+            <div class="advice-num">01</div>
+            <div class="advice-text">
+              <div class="advice-main">弱化对<span class="highlight-word">「理解」</span>的执着</div>
+              <div class="advice-sub">解释得完美不代表实盘能赚钱</div>
+            </div>
+          </div>
+          <div class="advice-item">
+            <div class="advice-num">02</div>
+            <div class="advice-text">
+              <div class="advice-main">将<span class="highlight-word">「样本外验证」</span>作为铁律</div>
+              <div class="advice-sub">未经跨周期、跨市场测试的因子，一律视为待定</div>
+            </div>
+          </div>
+          <div class="advice-item">
+            <div class="advice-num">03</div>
+            <div class="advice-text">
+              <div class="advice-main">优先选择<span class="highlight-word">「普适性强」</span>的信号</div>
+              <div class="advice-sub">在多个市场、周期有效，才更接近真规律</div>
+            </div>
+          </div>
+          <div class="advice-item">
+            <div class="advice-num">04</div>
+            <div class="advice-text">
+              <div class="advice-main">策略重心向<span class="highlight-word" style="color:var(--neon-green);">「结构性 Alpha」</span>倾斜</div>
+              <div class="advice-sub">聚焦基本面、盈利质量和资本效率</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
