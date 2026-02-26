@@ -110,7 +110,9 @@ project-root/
 
 ## 本地运行
 
-由于使用 iframe 架构，需要通过本地服务器运行：
+直接在浏览器中打开 `index.html` 即可运行。
+
+如果遇到跨域限制（部分浏览器对本地 iframe 有限制），可通过本地服务器运行：
 
 ```bash
 # 方式 1：VS Code Live Server 插件
@@ -126,14 +128,13 @@ python -m http.server 8080 --directory ./project-root
 
 `alpha/` 目录包含一个完整的演示示例，展示了赛博朋克风格的幻灯片效果。
 
+直接在浏览器打开 `alpha/index.html` 即可查看，或通过本地服务器：
+
 ```bash
-# 运行演示
 npx serve ./alpha
 # 或
 python -m http.server 8080 --directory ./alpha
 ```
-
-然后访问 `http://localhost:3000`（npx serve）或 `http://localhost:8080`（Python）。
 
 ## 技术栈
 
