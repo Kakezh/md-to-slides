@@ -157,6 +157,57 @@ md-to-slides/
     └── example-prompt.md     # Prompt 示例
 ```
 
+## 安装与使用
+
+本 Skill 遵循 [Agent Skills 开放标准](https://code.claude.com/docs/zh-CN/skills)，可安装到以下位置：
+
+### Claude Code
+
+| 作用域 | 路径 | 说明 |
+|--------|------|------|
+| 企业级 | `<企业托管目录>/skills/md-to-slides/SKILL.md` | 组织内所有用户可用 |
+| 个人级 | `~/.claude/skills/md-to-slides/SKILL.md` | 你的所有项目可用 |
+| 项目级 | `<项目目录>/.claude/skills/md-to-slides/SKILL.md` | 仅当前项目可用 |
+
+安装后，Claude 会根据 `description` 自动判断何时使用，或通过 `/md-to-slides` 直接调用。
+
+### 其他 AI 工具
+
+| 工具 | 路径 | 说明 |
+|------|------|------|
+| **OpenCode** | `~/.opencode/skills/md-to-slides/SKILL.md` | 个人全局可用 |
+| **Codex CLI** | `~/.codex/skills/md-to-slides/SKILL.md` | 个人全局可用 |
+| **Cursor** | `<项目目录>/.cursor/skills/md-to-slides/SKILL.md` | 项目级可用 |
+| **Windsurf** | `<项目目录>/.windsurf/skills/md-to-slides/SKILL.md` | 项目级可用 |
+| **通用** | `<项目目录>/.skills/md-to-slides/SKILL.md` | 通用项目级路径 |
+
+### 手动安装
+
+```bash
+# 克隆仓库
+git clone https://github.com/Kakezh/md-to-slides.git
+
+# 复制到 Claude Code 个人目录
+cp -r md-to-slides ~/.claude/skills/
+
+# 或复制到项目目录
+cp -r md-to-slides your-project/.claude/skills/
+```
+
+### 验证安装
+
+安装后，在对应 AI 工具中输入以下命令验证：
+
+```
+/md-to-slides
+```
+
+或直接描述任务：
+
+```
+帮我把这份 markdown 大纲做成 HTML 幻灯片
+```
+
 ## License
 
 MIT
